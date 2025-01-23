@@ -1,0 +1,4 @@
+---
+# tasks file for roles/mysql
+- include_tasks: install_mysql.yml
+- include_tasks: setup_mysql.yml

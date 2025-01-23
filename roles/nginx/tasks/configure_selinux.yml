@@ -1,0 +1,6 @@
+- name: Configure SELinux boolean for HTTPD network connections
+  ansible.builtin.seboolean:
+    name: httpd_can_network_connect
+    state: true
+    persistent: true
+  tags: selinux

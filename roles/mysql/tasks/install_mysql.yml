@@ -1,0 +1,20 @@
+- name: Ensure mysql-server is installed latest version
+  dnf: name=mysql-server state=latest
+  tags: installation
+
+- name: Install Python 3 and pip3
+  package:
+    name:
+      - python3
+      - python3-pip
+    state: present
+
+- name: Install pymysql on target hosts
+  pip:
+    name: pymysql
+    state: present
+
+- name: Ensure mysql-server is started
+  service:
+    name: mysqld
+    state: started

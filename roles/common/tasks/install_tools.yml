@@ -1,0 +1,7 @@
+- name: "Install common packages"
+  dnf: name={{ item }} state=latest
+  with_items:
+    - btop
+    - tree
+    - open-vm-tools
+  tags: installation

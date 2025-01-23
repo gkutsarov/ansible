@@ -1,0 +1,6 @@
+- name: "Install nginx packages"
+  dnf:
+    name: nginx
+    state: present
+  tags: installation
+    

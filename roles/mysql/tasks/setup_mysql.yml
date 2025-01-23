@@ -1,0 +1,11 @@
+- name: Create my.cnf configuration file
+  template: src=templates/my.cnf.j2 dest=/etc/my.cnf.d/mysql.cnf
+  notify: restart mysql
+
+- name: Create a new database with name 'my_database'
+  mysql_db:
+    name: my_database
+    state: present
+  tags: mysqldb
+
+

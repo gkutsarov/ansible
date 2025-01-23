@@ -1,0 +1,20 @@
+- name: ensure apache is at latest version
+  dnf:
+    name: httpd
+    state: latest
+  tags: installation
+
+- name: Configure the httpd index.html
+  template:
+    src: templates/index.html.j2
+    dest: /var/www/html/index.html
+  notify:
+  - restart httpd
+  tags: configuration
+
+- name: ensure httpd is started
+  service:
+    name: httpd
+    state: started
+  tags: configuration
+
